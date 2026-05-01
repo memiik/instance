@@ -22,5 +22,5 @@ public class FollowingKey implements Serializable {
 
     @PrimaryKeyColumn(name = "target_user_id", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
     @EqualsAndHashCode.Include
-    private UUID targetUserId;
+    private UUID followingId;
 }
