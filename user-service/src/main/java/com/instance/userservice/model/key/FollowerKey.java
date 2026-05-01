@@ -19,7 +19,7 @@ public class FollowerKey {
     @EqualsAndHashCode.Include
     private UUID userId;
 
-    @PrimaryKeyColumn(name = "follower_id", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
+    @PrimaryKeyColumn(name = "follower_user_id", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
     @EqualsAndHashCode.Include
-    private UUID followerId;
+    private UUID followerUserId;
 }

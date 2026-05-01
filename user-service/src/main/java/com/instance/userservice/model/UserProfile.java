@@ -16,8 +16,8 @@ import java.util.UUID;
 @ToString
 public class UserProfile {
 
-    @PrimaryKey("keycloak_user_id")
-    private UUID keycloakUserId;
+    @PrimaryKey("user_id")
+    private UUID userId;
 
     @Column("username")
     private String username;

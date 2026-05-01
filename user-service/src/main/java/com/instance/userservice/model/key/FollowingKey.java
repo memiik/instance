@@ -20,7 +20,7 @@ public class FollowingKey implements Serializable {
     @EqualsAndHashCode.Include
     private UUID userId;
 
-    @PrimaryKeyColumn(name = "following_id", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
+    @PrimaryKeyColumn(name = "following_user_id", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
     @EqualsAndHashCode.Include
-    private UUID followingId;
+    private UUID followingUserId;
 }
