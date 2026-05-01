@@ -3,7 +3,7 @@ services:
     image: cassandra:5.0.8
     container_name: cassandra-user-service
     ports:
-      - "127.0.0.1:9042:9042"
+      - "9042:9042"
     environment:
       CASSANDRA_CLUSTER_NAME: cassandra-user-service
       CASSANDRA_DC: datacenter1
@@ -19,6 +19,18 @@ services:
       timeout: 30s
       retries: 10
       start_period: 60s
+
+  cassandra-init:
+    image: cassandra:5.0.8
+    container_name: cassandra-user-service-init
+    depends_on:
+      cassandra-user-service:
+        condition: service_healthy
+    volumes:
+      - ./docker/cassandra/init.cql:/init.cql
+    command: >
+      bash -c "cqlsh cassandra-user-service 9042 -f /init.cql"
+    restart: "no"
 
 volumes:
   cassandra-user-service-data:
